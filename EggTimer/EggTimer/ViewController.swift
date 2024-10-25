@@ -8,6 +8,8 @@
 import UIKit
 
 class ViewController: UIViewController {
+
+    
     
     @IBOutlet weak var timeCounterLabel: UILabel!
     
@@ -15,9 +17,7 @@ class ViewController: UIViewController {
         let button: Button? = Button(with: sender.tag)
         guard let button else { return }
         if let timerTask {
-            if !timerTask.isCancelled {
-                return
-            }
+            timerTask.cancel()
         }
         timerTask = Task {
             
